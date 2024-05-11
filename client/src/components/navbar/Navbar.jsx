@@ -33,6 +33,7 @@ const Navbar = () => {
     }
   };
 
+  const profileRoute = "/profile/" + currentUser.id;
 
   return (
     <div className="navbar">
@@ -58,13 +59,17 @@ const Navbar = () => {
         <NotificationsOutlinedIcon />
         <div className="user">
           <img
-            src={"/upload/" + currentUser.profilePic}
+            src={currentUser.profilePic}
             alt=""
           />
-          <span>{currentUser.name}</span>
+          
+          <Link to={profileRoute}>
+            <span>{currentUser.name}</span>
+          </Link>
+
           <span onClick={handleLogout}>Logout</span>
         </div>
-        
+
       </div>
     </div>
   );
